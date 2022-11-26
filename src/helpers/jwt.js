@@ -11,6 +11,7 @@ module.exports = {
 
     authenticateUser: async (user) => {
         return {
+            message: "success!",
             token: JWT.sign({username: user.username, user_id: user.id}, SECRET),
             user_profile: {username: user.username, user_id: user.id}
         }

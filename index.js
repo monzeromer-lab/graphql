@@ -18,9 +18,14 @@ type CreateUser {
     username: String,
     password: String
   },
+  type userLogin {
+    username: String,
+    user_id: String
+  },
   type LoggedIn {
+    message: String,
     token: String,
-    user_profile: CreateUser
+    user_profile: userLogin
   }
 `);
 // Root resolver

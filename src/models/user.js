@@ -1,7 +1,8 @@
 const sequlize = require("../db/connection");
 const {
     DataTypes
-} = require("sequelize")
+} = require("sequelize");
+const Post = require("./post")
 
 const User = sequlize.define("user", {
     id: {
@@ -20,5 +21,11 @@ const User = sequlize.define("user", {
 });
 
 User.sync({force: false});
+
+User.hasOne(Post, {
+    foreignKey: 'user_id'
+});
+
+Post.belongsTo(User);
 
 module.exports = User;

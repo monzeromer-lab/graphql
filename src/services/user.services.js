@@ -30,8 +30,8 @@ module.exports = {
                 return {
                     message: "User not found!"
                 }
-
-            let passwordState = compare(args.password, user.password)
+                
+            let passwordState = await compare(args.password, user.password)
             if (passwordState)
                 return await authenticateUser(user)
 
